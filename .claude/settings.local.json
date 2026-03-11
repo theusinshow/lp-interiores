@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\\\Dev\\\\pessoal\\\\portfolio\\\\lp-interiores\")",
+      "Bash(dir /s /b \"c:\\\\Dev\\\\pessoal\\\\portfolio\\\\lp-interiores\")",
+      "Bash(findstr /v \".git\")"
+    ]
+  }
+}
