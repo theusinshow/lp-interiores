@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -26,7 +26,7 @@ const heroSlides = [
 export function Hero() {
   const [current, setCurrent] = useState(0)
   const [isReady, setIsReady] = useState(false)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const [paused, setPaused] = useState(false)
   const reduceMotion = useReducedMotion()
 
   useEffect(() => {
@@ -35,15 +35,14 @@ export function Hero() {
   }, [])
 
   useEffect(() => {
-    // Honor reduced-motion: no auto-advancing slideshow.
-    if (reduceMotion) return
-    intervalRef.current = setInterval(() => {
+    // Honor reduced-motion (no auto-advance) and WCAG 2.2.2 (pause on
+    // pointer/keyboard interaction) by gating the interval on both flags.
+    if (reduceMotion || paused) return
+    const id = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroSlides.length)
     }, 6000)
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [reduceMotion])
+    return () => clearInterval(id)
+  }, [reduceMotion, paused])
 
   const handleCtaClick = (target: string) => {
     const el = document.querySelector(target)
@@ -58,6 +57,11 @@ export function Hero() {
       id="hero"
       className="relative h-screen min-h-[600px] max-h-[1080px] overflow-hidden"
       aria-label="Apresentação da Maison Étoile Interiors"
+      aria-roledescription="carrossel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
     >
       {/* Slideshow background */}
       <div className="absolute inset-0">

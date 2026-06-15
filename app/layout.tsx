@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Marcellus, Hanken_Grotesk } from 'next/font/google'
+import { MotionProvider } from '@/components/MotionProvider'
 import './globals.css'
 
 // Display: an inscriptional roman serif. Architectural, elegant, and
@@ -109,7 +110,7 @@ export default function RootLayout({
         >
           Pular para o conteúdo
         </a>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   )
