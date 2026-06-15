@@ -9,7 +9,7 @@ const testimonials = [
   {
     id: 1,
     quote:
-      'A Isabela entendeu nosso projeto melhor do que nós mesmos. O resultado foi um apartamento que parece feito sob medida para cada detalhe da nossa vida — e de fato foi. A entrega superou todas as expectativas.',
+      'A Isabela entendeu nosso projeto melhor do que nós mesmos. O resultado foi um apartamento que parece feito sob medida para cada detalhe da nossa vida, e de fato foi. A entrega superou todas as expectativas.',
     author: 'Mariana & Ricardo T.',
     detail: 'Apartamento · Vila Nova Conceição, São Paulo',
     initial: 'MR',
@@ -25,7 +25,7 @@ const testimonials = [
   {
     id: 3,
     quote:
-      'Investi em interiores em outros projetos antes e nunca tive a experiência consultiva que a Maison Étoile proporcionou. A curadoria de materiais, o cuidado com cada peça, a presença na obra — isso não tem preço.',
+      'Investi em interiores em outros projetos antes e nunca tive a experiência consultiva que a Maison Étoile proporcionou. A curadoria de materiais, o cuidado com cada peça, a presença na obra: isso não tem preço.',
     author: 'Eduardo M.',
     detail: 'Cobertura · Itaim Bibi, São Paulo',
     initial: 'EM',
@@ -66,14 +66,14 @@ export function Testimonials() {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.1 + i * 0.07 }}
                 onClick={() => setActive(i)}
-                className={`text-left px-5 py-4 border-l-2 transition-all duration-400 ease-premium ${
+                className={`text-left px-5 py-4 border transition-colors duration-400 ease-premium ${
                   active === i
-                    ? 'border-gold bg-beige/30 text-noir'
-                    : 'border-beige/40 text-taupe hover:border-taupe/60 hover:text-noir/70'
+                    ? 'border-gold/60 bg-beige/40 text-noir'
+                    : 'border-transparent hover:bg-beige/20 text-taupe-300 hover:text-noir'
                 }`}
               >
-                <p className={`font-serif text-[1.05rem] transition-colors duration-300 ${
-                  active === i ? 'text-noir' : 'text-taupe'
+                <p className={`font-serif text-title transition-colors duration-300 ${
+                  active === i ? 'text-noir' : 'text-taupe-300'
                 }`}>
                   {t.author}
                 </p>
@@ -94,13 +94,13 @@ export function Testimonials() {
               >
                 {/* Quote mark */}
                 <span
-                  className="block font-serif text-[5rem] text-gold/20 leading-none mb-4 select-none"
+                  className="block font-serif text-stat text-gold/30 leading-none mb-4 select-none"
                   aria-hidden="true"
                 >
                   &ldquo;
                 </span>
 
-                <blockquote className="font-serif text-[1.35rem] md:text-[1.55rem] text-noir font-light leading-[1.55] mb-8 text-balance">
+                <blockquote className="font-serif text-quote text-noir leading-[1.55] mb-8 text-balance">
                   {testimonials[active].quote}
                 </blockquote>
 
@@ -123,7 +123,7 @@ export function Testimonials() {
               <button
                 onClick={handlePrev}
                 aria-label="Depoimento anterior"
-                className="w-10 h-10 border border-beige flex items-center justify-center text-taupe hover:border-gold hover:text-gold transition-colors duration-300"
+                className="w-11 h-11 border border-beige flex items-center justify-center text-taupe hover:border-gold hover:text-gold transition-colors duration-300"
               >
                 ←
               </button>
@@ -133,7 +133,7 @@ export function Testimonials() {
               <button
                 onClick={handleNext}
                 aria-label="Próximo depoimento"
-                className="w-10 h-10 border border-beige flex items-center justify-center text-taupe hover:border-gold hover:text-gold transition-colors duration-300"
+                className="w-11 h-11 border border-beige flex items-center justify-center text-taupe hover:border-gold hover:text-gold transition-colors duration-300"
               >
                 →
               </button>
@@ -146,7 +146,7 @@ export function Testimonials() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-16 text-micro text-taupe/40 italic font-sans"
+          className="mt-16 text-micro text-taupe font-sans"
         >
           * Nomes preservados a pedido dos clientes. Depoimentos reais coletados ao longo dos projetos.
         </motion.p>

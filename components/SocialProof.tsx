@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useMotionValue, useSpring, useTransform, animate } from 'framer-motion'
+import { motion, animate, useReducedMotion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
@@ -22,9 +22,15 @@ function AnimatedNumber({
   inView: boolean
 }) {
   const ref = useRef<HTMLSpanElement>(null)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     if (!inView || !ref.current) return
+    // Reduced motion: show the final figure immediately, no count-up.
+    if (reduceMotion) {
+      ref.current.textContent = value.toString() + suffix
+      return
+    }
     const controls = animate(0, value, {
       duration: 1.8,
       ease: 'easeOut',
@@ -33,7 +39,7 @@ function AnimatedNumber({
       },
     })
     return () => controls.stop()
-  }, [inView, value, suffix])
+  }, [inView, value, suffix, reduceMotion])
 
   return (
     <span ref={ref} aria-label={`${value}${suffix}`}>
@@ -80,11 +86,11 @@ export function SocialProof() {
                 }}
                 className="bg-noir/20 px-8 py-10 lg:py-14"
               >
-                <div className="font-serif text-[3rem] md:text-[3.5rem] text-cream font-light leading-none mb-3 tracking-[-0.02em]">
+                <div className="font-serif text-stat text-cream leading-none mb-3">
                   <AnimatedNumber value={stat.value} suffix={stat.suffix} inView={inView} />
                 </div>
-                <p className="text-body text-beige/80 font-sans font-medium mb-1">{stat.label}</p>
-                <p className="text-micro text-taupe/60 uppercase tracking-[0.1em]">{stat.detail}</p>
+                <p className="text-body text-beige font-sans font-medium mb-1">{stat.label}</p>
+                <p className="text-micro text-taupe-100 uppercase tracking-[0.1em]">{stat.detail}</p>
               </motion.div>
             ))}
           </div>

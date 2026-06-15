@@ -1,24 +1,27 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { Marcellus, Hanken_Grotesk } from 'next/font/google'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({
+// Display: an inscriptional roman serif. Architectural, elegant, and
+// deliberately not the Cormorant/editorial-italic reflex. Single weight by design.
+const marcellus = Marcellus({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
+  weight: ['400'],
+  variable: '--font-marcellus',
   display: 'swap',
 })
 
-const inter = Inter({
+// Body: a clean neo-grotesque with a wide weight range for real hierarchy.
+const hanken = Hanken_Grotesk({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-hanken',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Maison Étoile Interiors — Arquitetura de Interiores de Alto Padrão',
+  metadataBase: new URL('https://maisonetoile.com.br'),
+  title: 'Maison Étoile Interiors · Arquitetura de Interiores de Alto Padrão',
   description:
     'Estúdio boutique especializado em interiores residenciais de luxo, projetos personalizados e curadoria de materiais nobres em São Paulo e todo o Brasil.',
   keywords: [
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     url: 'https://maisonetoile.com.br',
     siteName: 'Maison Étoile Interiors',
-    title: 'Maison Étoile Interiors — Arquitetura de Interiores de Alto Padrão',
+    title: 'Maison Étoile Interiors · Arquitetura de Interiores de Alto Padrão',
     description:
       'Espaços que traduzem quem você é. Projetos residenciais exclusivos com curadoria de materiais nobres e acompanhamento próximo em cada etapa.',
     images: [
@@ -44,13 +47,13 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Maison Étoile Interiors — Ambiente de luxo contemporâneo',
+        alt: 'Maison Étoile Interiors · Ambiente de luxo contemporâneo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Maison Étoile Interiors — Arquitetura de Interiores de Alto Padrão',
+    title: 'Maison Étoile Interiors · Arquitetura de Interiores de Alto Padrão',
     description:
       'Espaços que traduzem quem você é. Projetos residenciais exclusivos com curadoria de materiais nobres.',
     images: ['/og-image.jpg'],
@@ -77,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={`${marcellus.variable} ${hanken.variable}`}>
       <head>
         {/* GTM — replace GTM-XXXXXXX with real ID */}
         <script
@@ -100,6 +103,12 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-noir focus:text-cream focus:px-5 focus:py-3 focus:text-label focus:uppercase focus:tracking-[0.12em]"
+        >
+          Pular para o conteúdo
+        </a>
         {children}
       </body>
     </html>

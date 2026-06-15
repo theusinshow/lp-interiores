@@ -9,7 +9,7 @@ const steps = [
     number: '01',
     title: 'Conversa inicial',
     subtitle: 'Gratuita e sem compromisso',
-    body: 'Tudo começa com uma escuta. Em uma reunião de imersão, entendemos seu projeto, seus gostos, sua rotina e suas expectativas — antes de qualquer linha desenhada.',
+    body: 'Tudo começa com uma escuta. Em uma reunião de imersão, entendemos seu projeto, seus gostos, sua rotina e suas expectativas, antes de qualquer linha desenhada.',
     duration: '1 reunião',
   },
   {
@@ -67,21 +67,21 @@ export function Process() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-display text-cream font-light"
+              className="font-serif text-display text-cream"
             >
               Método que
               <br />
-              <em className="italic text-beige/70">elimina imprevistos.</em>
+              <em className="not-italic text-gold-100">elimina imprevistos.</em>
             </motion.h2>
           </div>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="text-body-lg text-beige/60 font-sans font-light self-end max-w-lg"
+            className="text-body-lg text-beige font-sans self-end max-w-lg"
           >
             Cada etapa é planejada para que você experiencie o processo com leveza,
-            confiança e total clareza — sem surpresas, sem ruídos, sem retrabalho.
+            confiança e total clareza: sem surpresas, sem ruídos, sem retrabalho.
           </motion.p>
         </div>
 
@@ -101,21 +101,21 @@ export function Process() {
             >
               {/* Number */}
               <div className="flex items-start justify-between mb-6">
-                <span className="font-serif text-[2.8rem] text-beige/20 font-light leading-none group-hover:text-gold/20 transition-colors duration-400">
+                <span className="font-serif text-numeral text-gold/40 leading-none group-hover:text-gold/70 transition-colors duration-400">
                   {step.number}
                 </span>
-                <span className="text-micro uppercase tracking-[0.14em] text-taupe-100/50 mt-2">
+                <span className="text-micro uppercase tracking-[0.14em] text-beige/70 mt-2">
                   {step.duration}
                 </span>
               </div>
 
-              <h3 className="font-serif text-heading text-cream font-medium mb-1">
+              <h3 className="font-serif text-heading text-cream mb-1">
                 {step.title}
               </h3>
-              <p className="text-micro uppercase tracking-[0.12em] text-gold/60 mb-4">
+              <p className="text-micro uppercase tracking-[0.12em] text-gold-100 mb-4">
                 {step.subtitle}
               </p>
-              <p className="text-body text-beige/50 font-sans leading-relaxed">
+              <p className="text-body text-beige/85 font-sans leading-relaxed">
                 {step.body}
               </p>
             </motion.div>
@@ -139,7 +139,7 @@ export function Process() {
             Iniciar meu projeto
             <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
           </button>
-          <p className="text-caption text-beige/40 font-sans italic">
+          <p className="text-caption text-beige/70 font-sans">
             Primeira conversa gratuita e sem compromisso.
           </p>
         </motion.div>

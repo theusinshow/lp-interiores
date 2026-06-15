@@ -49,7 +49,7 @@ export function Navbar() {
           <Link
             href="/"
             className="flex flex-col leading-none group"
-            aria-label="Maison Étoile Interiors — Página inicial"
+            aria-label="Maison Étoile Interiors, página inicial"
           >
             <span
               className={`font-serif text-[1.4rem] tracking-[0.06em] transition-colors duration-400 ${
@@ -134,7 +134,7 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleNavClick(link.href)}
-                className="font-serif text-[2rem] text-cream/80 hover:text-cream tracking-wide transition-colors duration-300"
+                className="font-serif text-heading text-cream/80 hover:text-cream tracking-wide transition-colors duration-300"
               >
                 {link.label}
               </motion.button>

@@ -122,7 +122,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           >
             <Image
               src={project.images[activeImg]}
-              alt={`${project.title} — ${project.description}`}
+              alt={`${project.title}: ${project.description}`}
               fill
               className={`object-cover object-center transition-transform duration-700 ease-premium ${
                 hovered ? 'scale-105' : 'scale-100'
@@ -141,17 +141,22 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           className="absolute inset-0 bg-noir/40 flex flex-col justify-between p-6"
         >
           {/* Image switcher dots */}
-          <div className="flex gap-2 self-end">
+          <div className="flex gap-1 self-end">
             {project.images.map((_, i) => (
               <button
                 key={i}
                 onMouseEnter={() => setActiveImg(i)}
                 onClick={() => setActiveImg(i)}
                 aria-label={`Ver imagem ${i + 1} do projeto ${project.title}`}
-                className={`w-6 h-0.5 transition-all duration-300 ${
-                  i === activeImg ? 'bg-cream' : 'bg-cream/40'
-                }`}
-              />
+                aria-pressed={i === activeImg}
+                className="grid place-items-center w-9 h-9 group/dot"
+              >
+                <span
+                  className={`block w-6 h-0.5 transition-all duration-300 ${
+                    i === activeImg ? 'bg-cream' : 'bg-cream/40 group-hover/dot:bg-cream/70'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
@@ -168,7 +173,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {/* Meta */}
       <div className="pt-5 pb-2">
         <div className="flex items-start justify-between gap-4 mb-2">
-          <h3 className="font-serif text-[1.25rem] text-noir font-medium">{project.title}</h3>
+          <h3 className="font-serif text-title text-noir">{project.title}</h3>
           <span className="text-micro uppercase tracking-[0.12em] text-taupe mt-1 shrink-0">{project.area}</span>
         </div>
         <div className="flex items-center gap-3 text-caption text-taupe/70">
@@ -176,7 +181,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <span className="w-1 h-1 rounded-full bg-taupe/30" aria-hidden="true" />
           <span>{project.location}</span>
         </div>
-        <p className="mt-2 text-caption text-taupe italic font-serif">{project.description}</p>
+        <p className="mt-2 text-caption text-taupe-300 font-serif">{project.description}</p>
       </div>
     </motion.div>
   )
@@ -228,10 +233,10 @@ export function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-display text-noir font-light"
+              className="font-serif text-display text-noir"
             >
               Projetos que{' '}
-              <em className="italic text-taupe">ficam na memória.</em>
+              <em className="not-italic text-gold">ficam na memória.</em>
             </motion.h2>
           </div>
 
@@ -259,7 +264,7 @@ export function Portfolio() {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         role="region"
-        aria-label="Carrossel de projetos — arraste para navegar"
+        aria-label="Carrossel de projetos, arraste para navegar"
       >
         {projects.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />

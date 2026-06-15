@@ -1,13 +1,13 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
 const heroSlides = [
   {
     src: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1800&q=85',
-    alt: 'Sala de estar com mármore e madeira — projeto residencial de luxo',
+    alt: 'Sala de estar com mármore e madeira, projeto residencial de luxo',
   },
   {
     src: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1800&q=85',
@@ -27,6 +27,7 @@ export function Hero() {
   const [current, setCurrent] = useState(0)
   const [isReady, setIsReady] = useState(false)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     const timer = setTimeout(() => setIsReady(true), 300)
@@ -34,13 +35,15 @@ export function Hero() {
   }, [])
 
   useEffect(() => {
+    // Honor reduced-motion: no auto-advancing slideshow.
+    if (reduceMotion) return
     intervalRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroSlides.length)
     }, 6000)
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
-  }, [])
+  }, [reduceMotion])
 
   const handleCtaClick = (target: string) => {
     const el = document.querySelector(target)
@@ -68,7 +71,7 @@ export function Hero() {
             className="absolute inset-0"
           >
             <motion.div
-              initial={{ scale: 1.04 }}
+              initial={reduceMotion ? false : { scale: 1.04 }}
               animate={{ scale: 1.0 }}
               transition={{ duration: 8, ease: 'easeOut' }}
               className="absolute inset-0"
@@ -100,28 +103,28 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={isReady ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center gap-3 mb-8"
           >
-            <span className="block w-10 h-px bg-gold/70" />
-            <span className="section-label text-beige/70">São Paulo · Projetos Exclusivos</span>
+            <span aria-hidden="true" className="text-[0.7rem] leading-none text-gold-100">✦</span>
+            <span className="section-label text-beige">São Paulo · Projetos Exclusivos</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={isReady ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif text-hero text-cream font-light max-w-4xl mb-6 text-balance"
+            className="font-serif text-hero text-cream max-w-4xl mb-6 text-balance"
           >
             Espaços que
             <br />
-            <em className="not-italic text-beige">traduzem quem você é.</em>
+            <em className="not-italic text-gold-100">traduzem quem você é.</em>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={isReady ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="text-body-lg text-beige/80 max-w-xl mb-10 font-sans font-light"
+            className="text-body-lg text-beige/90 max-w-xl mb-10 font-sans"
           >
             Interiores residenciais de alto padrão com curadoria exclusiva de materiais,
             design personalizado e acompanhamento próximo em cada detalhe.
@@ -158,18 +161,27 @@ export function Hero() {
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 right-8 md:right-12 z-10 flex gap-2" aria-hidden="true">
+      <div
+        className="absolute bottom-8 right-8 md:right-12 z-10 flex gap-2"
+        role="group"
+        aria-label="Selecionar imagem de destaque"
+      >
         {heroSlides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            aria-label={`Ver slide ${i + 1}`}
-            className={`transition-all duration-400 ease-premium ${
-              i === current
-                ? 'w-8 h-px bg-cream'
-                : 'w-3 h-px bg-cream/30 hover:bg-cream/60'
-            }`}
-          />
+            aria-label={`Ver imagem ${i + 1} de ${heroSlides.length}`}
+            aria-pressed={i === current}
+            className="grid place-items-center w-11 h-11 -my-3.5 group/dot"
+          >
+            <span
+              className={`block h-px transition-all duration-400 ease-premium ${
+                i === current
+                  ? 'w-8 bg-cream'
+                  : 'w-3 bg-cream/40 group-hover/dot:bg-cream/70'
+              }`}
+            />
+          </button>
         ))}
       </div>
 
@@ -182,7 +194,7 @@ export function Hero() {
         aria-hidden="true"
       >
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
           className="w-px h-12 bg-gradient-to-b from-cream/50 to-transparent"
         />

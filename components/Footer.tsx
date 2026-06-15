@@ -46,9 +46,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <p className="font-serif text-[1.6rem] text-cream tracking-[0.05em]">Maison Étoile</p>
-              <p className="text-micro uppercase tracking-[0.2em] text-taupe/60">Interiors</p>
+              <p className="text-micro uppercase tracking-[0.2em] text-taupe-100/60">Interiors</p>
             </div>
-            <p className="text-body text-taupe/70 font-sans font-light leading-relaxed max-w-sm mt-4">
+            <p className="text-body text-taupe-100/70 font-sans font-light leading-relaxed max-w-sm mt-4">
               Estúdio boutique especializado em arquitetura de interiores e mobiliário sob
               medida de alto padrão. São Paulo, Brasil.
             </p>
@@ -61,7 +61,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Seguir no ${s.label}`}
-                  className="w-9 h-9 border border-taupe/30 flex items-center justify-center text-taupe/60
+                  className="w-11 h-11 border border-taupe-100/30 flex items-center justify-center text-taupe-100/70
                     hover:border-gold hover:text-gold transition-colors duration-400"
                 >
                   {s.icon}
@@ -72,8 +72,8 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-label uppercase tracking-[0.14em] text-taupe/60 mb-5">Contato</h3>
-            <ul className="space-y-3 text-body text-taupe/70 font-sans">
+            <h3 className="text-label uppercase tracking-[0.14em] text-taupe-100/60 mb-5">Contato</h3>
+            <ul className="space-y-3 text-body text-taupe-100/70 font-sans">
               <li>
                 <a
                   href="mailto:contato@maisonetoile.com.br"
@@ -92,8 +92,8 @@ export function Footer() {
                   +55 (11) 99999-9999
                 </a>
               </li>
-              <li className="text-taupe/50">São Paulo — SP, Brasil</li>
-              <li className="text-taupe/50 text-caption">
+              <li className="text-taupe-100/50">São Paulo, SP · Brasil</li>
+              <li className="text-taupe-100/50 text-caption">
                 Seg–Sex: 9h às 18h
               </li>
             </ul>
@@ -101,7 +101,7 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-label uppercase tracking-[0.14em] text-taupe/60 mb-5">Navegação</h3>
+            <h3 className="text-label uppercase tracking-[0.14em] text-taupe-100/60 mb-5">Navegação</h3>
             <ul className="space-y-3">
               {[
                 { label: 'Estúdio', href: '#studio' },
@@ -119,7 +119,7 @@ export function Footer() {
                       const el = document.querySelector(link.href)
                       if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' })
                     }}
-                    className="text-body text-taupe/70 hover:text-cream transition-colors duration-300 font-sans"
+                    className="text-body text-taupe-100/70 hover:text-cream transition-colors duration-300 font-sans"
                   >
                     {link.label}
                   </a>
@@ -130,18 +130,18 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-taupe/20 mb-8" />
+        <div className="w-full h-px bg-taupe-100/20 mb-8" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="text-micro text-taupe/40 font-sans">
+          <p className="text-micro text-taupe-100/40 font-sans">
             © {year} Maison Étoile Interiors. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
-            <a href="/privacidade" className="text-micro text-taupe/40 hover:text-taupe/70 transition-colors duration-300">
+            <a href="/privacidade" className="text-micro text-taupe-100/40 hover:text-taupe-100/70 transition-colors duration-300">
               Política de Privacidade
             </a>
-            <a href="/termos" className="text-micro text-taupe/40 hover:text-taupe/70 transition-colors duration-300">
+            <a href="/termos" className="text-micro text-taupe-100/40 hover:text-taupe-100/70 transition-colors duration-300">
               Termos de Uso
             </a>
           </div>

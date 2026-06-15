@@ -8,7 +8,7 @@ const differentials = [
   {
     number: '01',
     title: 'Escuta antes do traço',
-    body: 'Todo projeto começa com uma imersão no seu universo — sua rotina, sua estética, seus desejos conscientes e não ditos. Só então começamos a projetar.',
+    body: 'Todo projeto começa com uma imersão no seu universo: sua rotina, sua estética, seus desejos conscientes e não ditos. Só então começamos a projetar.',
   },
   {
     number: '02',
@@ -28,7 +28,7 @@ const differentials = [
   {
     number: '05',
     title: 'Número selecionado de clientes',
-    body: 'Trabalhamos com poucos projetos simultâneos por escolha — para garantir dedicação total e um atendimento à altura do seu padrão de exigência.',
+    body: 'Trabalhamos com poucos projetos simultâneos por escolha, para garantir dedicação total e um atendimento à altura do seu padrão de exigência.',
   },
 ]
 
@@ -50,21 +50,21 @@ export function Differentials() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-display text-noir font-light text-balance"
+              className="font-serif text-display text-noir text-balance"
             >
               O que nos define{' '}
               <br className="hidden md:block" />
-              <em className="italic text-taupe">é o que entregamos.</em>
+              <em className="not-italic text-gold">é o que entregamos.</em>
             </motion.h2>
           </div>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="text-body-lg text-taupe font-sans font-light self-end max-w-lg leading-relaxed"
+            className="text-body-lg text-taupe-300 font-sans self-end max-w-lg leading-relaxed"
           >
             Não somos um escritório de arquitetura convencional. Somos um estúdio boutique
-            que trata cada projeto com a precisão de uma obra de arte — e a responsabilidade
+            que trata cada projeto com a precisão de uma obra de arte, e a responsabilidade
             de quem habita o espaço.
           </motion.p>
         </div>
@@ -83,13 +83,13 @@ export function Differentials() {
               }}
               className="bg-cream p-8 lg:p-10 group hover:bg-cream-100 transition-colors duration-400"
             >
-              <span className="block font-serif text-[3.5rem] text-beige/60 font-light leading-none mb-6 group-hover:text-gold/30 transition-colors duration-400">
+              <span className="block font-serif text-numeral text-gold/70 leading-none mb-6 transition-colors duration-400">
                 {item.number}
               </span>
-              <h3 className="font-serif text-heading text-noir font-medium mb-4">
+              <h3 className="font-serif text-heading text-noir mb-4">
                 {item.title}
               </h3>
-              <p className="text-body text-taupe font-sans leading-relaxed">
+              <p className="text-body text-taupe-300 font-sans leading-relaxed">
                 {item.body}
               </p>
             </motion.div>
@@ -103,10 +103,10 @@ export function Differentials() {
             className="bg-brown hidden lg:flex items-end p-10"
           >
             <div>
-              <p className="font-serif text-[1.5rem] text-cream/80 font-light italic mb-4 leading-snug">
+              <p className="font-serif text-quote text-cream/90 mb-4 leading-snug">
                 &ldquo;Cada detalhe<br />é uma decisão.&rdquo;
               </p>
-              <span className="text-micro uppercase tracking-[0.16em] text-beige/50">
+              <span className="text-micro uppercase tracking-[0.16em] text-beige/70">
                 Isabela Monteiro
               </span>
             </div>

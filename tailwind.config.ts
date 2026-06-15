@@ -9,46 +9,61 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Core palette — Maison Étoile
-        cream: '#F5F1EB',
-        beige: '#D8CBB8',
-        taupe: '#8D7F73',
-        brown: '#4A3A32',
-        noir: '#1C1A19',
-        gold: '#B79A6B',
+        // Core palette — Maison Étoile (deepened warm stone + aged brass).
+        // Text tones are tuned so body copy clears WCAG AA on its surface:
+        //   taupe (#6B5D4F) on cream ≈ 5.4:1, taupe-300 (#564A40) ≈ 6.6:1.
+        // taupe-100 (#9C8E7F) is the LIGHT tone reserved for text on dark surfaces.
+        cream: '#F3EDE3',
+        beige: '#C9BBA6',
+        taupe: '#6B5D4F',
+        brown: '#3E312A',
+        noir: '#1E1813',
+        gold: '#A87C4F',
         // Tonal scale
-        'cream-100': '#FAF8F4',
-        'cream-200': '#F5F1EB',
-        'beige-100': '#EDE5D8',
-        'beige-200': '#D8CBB8',
-        'taupe-100': '#A89B8F',
-        'taupe-200': '#8D7F73',
-        'taupe-300': '#6E6259',
-        'brown-100': '#6B5548',
-        'brown-200': '#4A3A32',
-        'noir-100': '#2E2B2A',
-        'noir-200': '#1C1A19',
-        'gold-100': '#D4B88A',
-        'gold-200': '#B79A6B',
-        'gold-300': '#9A7E52',
+        'cream-100': '#FAF6EF',
+        'cream-200': '#F3EDE3',
+        'beige-100': '#E7DCCB',
+        'beige-200': '#C9BBA6',
+        'taupe-100': '#9C8E7F',
+        'taupe-200': '#6B5D4F',
+        'taupe-300': '#564A40',
+        'brown-100': '#5A4A3F',
+        'brown-200': '#3E312A',
+        'noir-100': '#2E2620',
+        'noir-200': '#1E1813',
+        'gold-100': '#C19A6A',
+        'gold-200': '#A87C4F',
+        'gold-300': '#876038',
+        // Semantic
+        danger: '#B23A2E',
       },
       fontFamily: {
-        serif: ['var(--font-cormorant)', 'Cormorant Garamond', 'Georgia', 'serif'],
-        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-marcellus)', 'Marcellus', 'Georgia', 'serif'],
+        sans: ['var(--font-hanken)', 'Hanken Grotesk', 'system-ui', 'sans-serif'],
       },
       fontSize: {
+        // Marcellus is a single 400 weight, so hierarchy comes from size + spacing,
+        // not weight. Scale ratio stays >=1.25 between display steps.
         // H1 hero
-        'hero': ['clamp(3rem, 7vw, 6.5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '300' }],
+        'hero': ['clamp(3.25rem, 7.5vw, 7rem)', { lineHeight: '1.02', letterSpacing: '-0.015em', fontWeight: '400' }],
         // H2 section
-        'display': ['clamp(2rem, 4vw, 3.75rem)', { lineHeight: '1.1', letterSpacing: '-0.015em', fontWeight: '300' }],
+        'display': ['clamp(2.1rem, 4.2vw, 4rem)', { lineHeight: '1.08', letterSpacing: '-0.01em', fontWeight: '400' }],
         // H3 support
-        'heading': ['clamp(1.25rem, 2.5vw, 2rem)', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '400' }],
+        'heading': ['clamp(1.35rem, 2.5vw, 2rem)', { lineHeight: '1.18', letterSpacing: '-0.005em', fontWeight: '400' }],
+        // Pull quotes (testimonials, large editorial lines)
+        'quote': ['clamp(1.4rem, 2.6vw, 1.7rem)', { lineHeight: '1.5', letterSpacing: '-0.005em', fontWeight: '400' }],
+        // Decorative numerals (process / differentials step numbers)
+        'numeral': ['clamp(2.6rem, 4.5vw, 3.4rem)', { lineHeight: '1', letterSpacing: '0' }],
+        // Big stats
+        'stat': ['clamp(2.85rem, 5vw, 3.6rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        // Card / item titles
+        'title': ['clamp(1.2rem, 1.6vw, 1.35rem)', { lineHeight: '1.25', letterSpacing: '-0.005em' }],
         // Body large
-        'body-lg': ['1.125rem', { lineHeight: '1.75', letterSpacing: '0.01em' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.75', letterSpacing: '0.005em' }],
         // Body standard
         'body': ['1rem', { lineHeight: '1.7', letterSpacing: '0.005em' }],
         // Caption
-        'caption': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.02em' }],
+        'caption': ['0.875rem', { lineHeight: '1.55', letterSpacing: '0.01em' }],
         // Label
         'label': ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.12em' }],
         // Microcopy

@@ -19,11 +19,11 @@ export function Manifesto() {
             initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center justify-center gap-4 mb-12"
+            className="flex items-center justify-center gap-3 mb-12"
           >
-            <span className="block w-8 h-px bg-gold/50" />
-            <span className="section-label text-taupe-100">Manifesto</span>
-            <span className="block w-8 h-px bg-gold/50" />
+            <span aria-hidden="true" className="text-[0.7rem] leading-none text-gold-100">✦</span>
+            <span className="section-label text-beige">Manifesto</span>
+            <span aria-hidden="true" className="text-[0.7rem] leading-none text-gold-100">✦</span>
           </motion.div>
 
           {/* Main text */}
@@ -31,11 +31,11 @@ export function Manifesto() {
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif text-display text-cream font-light leading-[1.15] tracking-[-0.01em] mb-10"
+            className="font-serif text-display text-cream leading-[1.15] tracking-[-0.01em] mb-10"
           >
-            &ldquo;Um interior de excelência não é construído —<br className="hidden md:block" />
+            &ldquo;Um interior de excelência não é construído,<br className="hidden md:block" />
             {' '}
-            <em className="italic text-beige">é cuidadosamente revelado.</em>&rdquo;
+            <em className="not-italic text-gold-100">é cuidadosamente revelado.</em>&rdquo;
           </motion.blockquote>
 
           {/* Body */}
@@ -43,10 +43,10 @@ export function Manifesto() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-body-lg text-taupe-100/80 font-sans font-light max-w-2xl mx-auto leading-relaxed"
+            className="text-body-lg text-beige/90 font-sans max-w-2xl mx-auto leading-relaxed"
           >
             Cada projeto nasce de uma escuta profunda. Entendemos seu modo de viver, sua
-            estética, seus desejos não ditos — e os traduzimos em ambientes que emocionam,
+            estética, seus desejos não ditos, e os traduzimos em ambientes que emocionam,
             funcionam com perfeição e resistem ao tempo.
           </motion.p>
 
@@ -65,8 +65,8 @@ export function Manifesto() {
             transition={{ duration: 0.8, delay: 0.65 }}
             className="mt-8 flex flex-col items-center gap-1"
           >
-            <span className="font-serif text-[1.1rem] text-beige/70 italic">Isabela Monteiro</span>
-            <span className="text-micro uppercase tracking-[0.16em] text-taupe/60">
+            <span className="font-serif text-title text-beige">Isabela Monteiro</span>
+            <span className="text-micro uppercase tracking-[0.16em] text-taupe-100">
               Diretora Criativa · Maison Étoile Interiors
             </span>
           </motion.div>
