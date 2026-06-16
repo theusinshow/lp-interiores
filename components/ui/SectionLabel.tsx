@@ -15,10 +15,16 @@ export function SectionLabel({ children, className = '', light = false }: Sectio
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex items-center gap-4 ${className}`}
+      className={`flex items-center gap-3 ${className}`}
     >
-      <span className={`block w-8 h-px ${light ? 'bg-beige/60' : 'bg-gold'}`} />
-      <span className={`section-label ${light ? 'text-beige/70' : 'text-taupe'}`}>
+      {/* The Étoile mark — a deliberate brand device, not a generic kicker rule. */}
+      <span
+        aria-hidden="true"
+        className={`text-[0.7rem] leading-none ${light ? 'text-brass-100' : 'text-brass'}`}
+      >
+        ✦
+      </span>
+      <span className={`section-label ${light ? 'text-beige' : 'text-taupe'}`}>
         {children}
       </span>
     </motion.div>

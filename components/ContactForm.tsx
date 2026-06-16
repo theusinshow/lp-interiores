@@ -27,6 +27,7 @@ const WHATSAPP_NUMBER = '5511999999999'
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 })
 
   const {
@@ -37,11 +38,18 @@ export function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setLoading(true)
-    // Simulate API call — replace with real endpoint (RD Station / Mailchimp)
-    await new Promise((resolve) => setTimeout(resolve, 1200))
-    console.log('Form data:', data)
-    setLoading(false)
-    setSubmitted(true)
+    setSubmitError(false)
+    try {
+      // TODO(integração): trocar pelo endpoint real (RD Station / Mailchimp).
+      // Lançar em caso de falha para acionar o estado de erro abaixo.
+      await new Promise((resolve) => setTimeout(resolve, 1200))
+      void data
+      setSubmitted(true)
+    } catch {
+      setSubmitError(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -58,7 +66,7 @@ export function ContactForm() {
       <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 hidden lg:block">
         <Image
           src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000&q=80"
-          alt="Interior de luxo — Maison Étoile Interiors"
+          alt="Interior de luxo, Maison Étoile Interiors"
           fill
           className="object-cover object-center"
           sizes="50vw"
@@ -77,17 +85,17 @@ export function ContactForm() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif text-display text-noir font-light mb-4 text-balance"
+                className="font-serif text-display text-noir mb-4 text-balance"
               >
                 Vamos conversar
                 <br />
-                <em className="italic text-taupe">sobre o seu projeto.</em>
+                <em className="not-italic text-brass">sobre o seu projeto.</em>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.25 }}
-                className="text-body text-taupe font-sans leading-relaxed mb-12"
+                className="text-body text-taupe-300 font-sans leading-relaxed mb-12"
               >
                 Preencha o formulário abaixo e entraremos em contato em até 48 horas
                 úteis. A primeira conversa é gratuita e sem compromisso.
@@ -100,11 +108,11 @@ export function ContactForm() {
                   transition={{ duration: 0.7 }}
                   className="py-12 border border-beige/60 px-8 text-center"
                 >
-                  <span className="block font-serif text-[3rem] text-gold/60 mb-4">✦</span>
+                  <span className="block font-serif text-numeral text-brass mb-4">✦</span>
                   <h3 className="font-serif text-heading text-noir mb-3">
                     Mensagem recebida.
                   </h3>
-                  <p className="text-body text-taupe font-sans">
+                  <p className="text-body text-taupe-300 font-sans">
                     Obrigada pelo contato. A Isabela retornará em breve com atenção exclusiva
                     para o seu projeto.
                   </p>
@@ -132,10 +140,12 @@ export function ContactForm() {
                         placeholder="Seu nome"
                         autoComplete="name"
                         className="form-input"
+                        aria-required
+                        aria-invalid={errors.name ? true : undefined}
                         aria-describedby={errors.name ? 'name-error' : undefined}
                       />
                       {errors.name && (
-                        <p id="name-error" role="alert" className="mt-1.5 text-micro text-red-500/80">
+                        <p id="name-error" role="alert" className="mt-1.5 text-micro text-danger">
                           {errors.name.message}
                         </p>
                       )}
@@ -151,10 +161,12 @@ export function ContactForm() {
                         placeholder="seu@email.com"
                         autoComplete="email"
                         className="form-input"
+                        aria-required
+                        aria-invalid={errors.email ? true : undefined}
                         aria-describedby={errors.email ? 'email-error' : undefined}
                       />
                       {errors.email && (
-                        <p id="email-error" role="alert" className="mt-1.5 text-micro text-red-500/80">
+                        <p id="email-error" role="alert" className="mt-1.5 text-micro text-danger">
                           {errors.email.message}
                         </p>
                       )}
@@ -174,10 +186,12 @@ export function ContactForm() {
                         placeholder="(11) 99999-9999"
                         autoComplete="tel"
                         className="form-input"
+                        aria-required
+                        aria-invalid={errors.whatsapp ? true : undefined}
                         aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
                       />
                       {errors.whatsapp && (
-                        <p id="whatsapp-error" role="alert" className="mt-1.5 text-micro text-red-500/80">
+                        <p id="whatsapp-error" role="alert" className="mt-1.5 text-micro text-danger">
                           {errors.whatsapp.message}
                         </p>
                       )}
@@ -192,10 +206,12 @@ export function ContactForm() {
                         type="text"
                         placeholder="Ex: São Paulo, SP"
                         className="form-input"
+                        aria-required
+                        aria-invalid={errors.city ? true : undefined}
                         aria-describedby={errors.city ? 'city-error' : undefined}
                       />
                       {errors.city && (
-                        <p id="city-error" role="alert" className="mt-1.5 text-micro text-red-500/80">
+                        <p id="city-error" role="alert" className="mt-1.5 text-micro text-danger">
                           {errors.city.message}
                         </p>
                       )}
@@ -214,6 +230,8 @@ export function ContactForm() {
                           id="propertyType"
                           className="form-select w-full"
                           defaultValue=""
+                          aria-required
+                          aria-invalid={errors.propertyType ? true : undefined}
                           aria-describedby={errors.propertyType ? 'propertyType-error' : undefined}
                         >
                           <option value="" disabled>Selecione</option>
@@ -228,7 +246,7 @@ export function ContactForm() {
                         </span>
                       </div>
                       {errors.propertyType && (
-                        <p id="propertyType-error" role="alert" className="mt-1.5 text-micro text-red-500/80">
+                        <p id="propertyType-error" role="alert" className="mt-1.5 text-micro text-danger">
                           {errors.propertyType.message}
                         </p>
                       )}
@@ -243,6 +261,8 @@ export function ContactForm() {
                           id="budget"
                           className="form-select w-full"
                           defaultValue=""
+                          aria-required
+                          aria-invalid={errors.budget ? true : undefined}
                           aria-describedby={errors.budget ? 'budget-error' : undefined}
                         >
                           <option value="" disabled>Selecione</option>
@@ -256,7 +276,7 @@ export function ContactForm() {
                         </span>
                       </div>
                       {errors.budget && (
-                        <p id="budget-error" role="alert" className="mt-1.5 text-micro text-red-500/80">
+                        <p id="budget-error" role="alert" className="mt-1.5 text-micro text-danger">
                           {errors.budget.message}
                         </p>
                       )}
@@ -274,6 +294,8 @@ export function ContactForm() {
                         id="timeline"
                         className="form-select w-full"
                         defaultValue=""
+                        aria-required
+                        aria-invalid={errors.timeline ? true : undefined}
                         aria-describedby={errors.timeline ? 'timeline-error' : undefined}
                       >
                         <option value="" disabled>Selecione</option>
@@ -287,7 +309,7 @@ export function ContactForm() {
                       </span>
                     </div>
                     {errors.timeline && (
-                      <p id="timeline-error" role="alert" className="mt-1.5 text-micro text-red-500/80">
+                      <p id="timeline-error" role="alert" className="mt-1.5 text-micro text-danger">
                         {errors.timeline.message}
                       </p>
                     )}
@@ -327,10 +349,17 @@ export function ContactForm() {
                         </>
                       )}
                     </button>
-                    <p className="text-micro text-taupe/50 italic">
+                    <p className="text-micro text-taupe-300">
                       Seus dados são tratados com total confidencialidade.
                     </p>
                   </div>
+
+                  {submitError && (
+                    <p role="alert" className="text-caption text-danger">
+                      Não foi possível enviar agora. Tente novamente ou fale conosco pelo
+                      WhatsApp abaixo.
+                    </p>
+                  )}
                 </motion.form>
               )}
 
@@ -346,7 +375,7 @@ export function ContactForm() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-ghost text-noir hover:text-gold group text-caption"
+                  className="btn-ghost text-noir hover:text-brass group text-caption"
                 >
                   WhatsApp
                   <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>

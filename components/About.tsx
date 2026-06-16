@@ -27,7 +27,7 @@ export function About() {
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=900&q=85"
-                alt="Isabela Monteiro — Diretora Criativa da Maison Étoile Interiors"
+                alt="Isabela Monteiro, Diretora Criativa da Maison Étoile Interiors"
                 fill
                 className="object-cover object-center transition-transform duration-1000 ease-premium hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -44,7 +44,7 @@ export function About() {
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="absolute -bottom-6 -right-0 lg:-right-8 bg-cream border border-beige/60 px-6 py-5 shadow-card"
             >
-              <p className="font-serif text-[2.2rem] text-brown font-light leading-none">12+</p>
+              <p className="font-serif text-numeral text-brown leading-none">12+</p>
               <p className="text-micro uppercase tracking-[0.14em] text-taupe mt-1">
                 Anos de experiência
               </p>
@@ -59,10 +59,10 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-display text-noir font-light mb-8 text-balance"
+              className="font-serif text-display text-noir mb-8 text-balance"
             >
               Rigor estético.<br />
-              <em className="italic text-taupe">Atenção humana.</em>
+              <em className="not-italic text-brass">Atenção humana.</em>
             </motion.h2>
 
             <motion.div
@@ -81,7 +81,7 @@ export function About() {
               </p>
               <p>
                 Cada projeto é tratado como único. Trabalhamos com um número selecionado de clientes
-                por vez — o que nos permite oferecer atenção irrestrita, presença em cada etapa da
+                por vez, o que nos permite oferecer atenção irrestrita, presença em cada etapa da
                 obra e um resultado que vai além do esperado.
               </p>
               <p>
@@ -104,7 +104,7 @@ export function About() {
                   const el = document.querySelector('#contact')
                   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' })
                 }}
-                className="btn-ghost text-noir hover:text-gold group"
+                className="btn-ghost text-noir hover:text-brass group"
               >
                 Conhecer o processo
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>

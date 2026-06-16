@@ -31,7 +31,7 @@ export function WhatsAppButton() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.96 }}
-          className="fixed bottom-8 right-8 z-50 flex items-center gap-3 bg-[#1C1A19] text-cream px-5 py-3.5 shadow-elevated
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 flex items-center gap-3 bg-noir text-cream px-5 py-3.5 shadow-elevated
             hover:bg-brown transition-colors duration-400 group"
         >
           {/* WhatsApp icon */}

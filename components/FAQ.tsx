@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'Em quais cidades vocês atendem?',
-    a: 'Temos base em São Paulo e atendemos regularmente Alphaville, Campinas, Balneário Camboriú e Florianópolis. Para projetos em outras cidades, avaliamos caso a caso — entre em contato para conversarmos.',
+    a: 'Temos base em São Paulo e atendemos regularmente Alphaville, Campinas, Balneário Camboriú e Florianópolis. Para projetos em outras cidades, avaliamos caso a caso: entre em contato para conversarmos.',
   },
   {
     q: 'Quanto tempo dura um projeto típico?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Como funciona a primeira conversa?',
-    a: 'É uma reunião presencial ou por videochamada, sem compromisso e sem custo. Queremos entender seu projeto, seus gostos e expectativas — e você terá a oportunidade de nos conhecer antes de qualquer decisão.',
+    a: 'É uma reunião presencial ou por videochamada, sem compromisso e sem custo. Queremos entender seu projeto, seus gostos e expectativas, e você terá a oportunidade de nos conhecer antes de qualquer decisão.',
   },
   {
     q: 'Vocês acompanham a obra ou apenas desenvolvem o projeto?',
@@ -55,17 +55,17 @@ export function FAQ() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-display text-noir font-light mb-8 text-balance"
+              className="font-serif text-display text-noir mb-8 text-balance"
             >
               Respondemos
               <br />
-              <em className="italic text-taupe">com clareza.</em>
+              <em className="not-italic text-brass">com clareza.</em>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="text-body text-taupe font-sans leading-relaxed"
+              className="text-body text-taupe-300 font-sans leading-relaxed"
             >
               Sua tranquilidade começa antes mesmo de assinarmos qualquer contrato.
               Aqui estão as perguntas que mais recebemos de novos clientes.
@@ -88,7 +88,7 @@ export function FAQ() {
                   className="w-full flex items-start justify-between gap-6 py-6 text-left group"
                 >
                   <span
-                    className={`font-serif text-[1.1rem] leading-snug transition-colors duration-300 ${
+                    className={`font-serif text-title leading-snug transition-colors duration-300 ${
                       open === i ? 'text-noir' : 'text-noir/80 group-hover:text-noir'
                     }`}
                   >
@@ -98,7 +98,7 @@ export function FAQ() {
                     animate={{ rotate: open === i ? 45 : 0 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className={`flex-shrink-0 mt-1 w-5 h-5 flex items-center justify-center text-body transition-colors duration-300 ${
-                      open === i ? 'text-gold' : 'text-taupe group-hover:text-noir'
+                      open === i ? 'text-brass' : 'text-taupe group-hover:text-noir'
                     }`}
                     aria-hidden="true"
                   >
@@ -115,7 +115,7 @@ export function FAQ() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-6 text-body text-taupe font-sans leading-relaxed pr-8">
+                      <p className="pb-6 text-body text-taupe-300 font-sans leading-relaxed pr-8">
                         {faq.a}
                       </p>
                     </motion.div>

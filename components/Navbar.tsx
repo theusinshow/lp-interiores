@@ -49,7 +49,7 @@ export function Navbar() {
           <Link
             href="/"
             className="flex flex-col leading-none group"
-            aria-label="Maison Étoile Interiors — Página inicial"
+            aria-label="Maison Étoile Interiors, página inicial"
           >
             <span
               className={`font-serif text-[1.4rem] tracking-[0.06em] transition-colors duration-400 ${
@@ -74,7 +74,7 @@ export function Navbar() {
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
                 className={`text-label uppercase tracking-[0.1em] transition-all duration-400 ease-premium
-                  hover:text-gold focus-visible:text-gold
+                  hover:text-brass focus-visible:text-brass
                   ${scrolled ? 'text-taupe' : 'text-cream/80'}`}
               >
                 {link.label}
@@ -84,8 +84,8 @@ export function Navbar() {
               onClick={() => handleNavClick('#contact')}
               className={`btn-secondary text-micro py-2.5 px-5 ${
                 scrolled
-                  ? 'text-noir border-noir hover:text-gold hover:border-gold'
-                  : 'text-cream border-cream/60 hover:border-cream hover:text-gold hover:border-gold'
+                  ? 'text-noir border-noir hover:text-brass hover:border-brass'
+                  : 'text-cream border-cream/60 hover:border-cream hover:text-brass hover:border-brass'
               }`}
             >
               Solicitar proposta
@@ -134,7 +134,7 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleNavClick(link.href)}
-                className="font-serif text-[2rem] text-cream/80 hover:text-cream tracking-wide transition-colors duration-300"
+                className="font-serif text-heading text-cream/80 hover:text-cream tracking-wide transition-colors duration-300"
               >
                 {link.label}
               </motion.button>
@@ -144,7 +144,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: navLinks.length * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => handleNavClick('#contact')}
-              className="mt-4 btn-secondary text-cream border-cream/30 hover:border-gold hover:text-gold"
+              className="mt-4 btn-secondary text-cream border-cream/30 hover:border-brass hover:text-brass"
             >
               Solicitar proposta
             </motion.button>
