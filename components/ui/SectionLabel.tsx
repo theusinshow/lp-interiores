@@ -20,7 +20,7 @@ export function SectionLabel({ children, className = '', light = false }: Sectio
       {/* The Étoile mark — a deliberate brand device, not a generic kicker rule. */}
       <span
         aria-hidden="true"
-        className={`text-[0.7rem] leading-none ${light ? 'text-gold-100' : 'text-gold'}`}
+        className={`text-[0.7rem] leading-none ${light ? 'text-brass-100' : 'text-brass'}`}
       >
         ✦
       </span>

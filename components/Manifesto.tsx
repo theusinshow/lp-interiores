@@ -21,9 +21,9 @@ export function Manifesto() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center justify-center gap-3 mb-12"
           >
-            <span aria-hidden="true" className="text-[0.7rem] leading-none text-gold-100">✦</span>
+            <span aria-hidden="true" className="text-[0.7rem] leading-none text-brass-100">✦</span>
             <span className="section-label text-beige">Manifesto</span>
-            <span aria-hidden="true" className="text-[0.7rem] leading-none text-gold-100">✦</span>
+            <span aria-hidden="true" className="text-[0.7rem] leading-none text-brass-100">✦</span>
           </motion.div>
 
           {/* Main text */}
@@ -35,7 +35,7 @@ export function Manifesto() {
           >
             &ldquo;Um interior de excelência não é construído,<br className="hidden md:block" />
             {' '}
-            <em className="not-italic text-gold-100">é cuidadosamente revelado.</em>&rdquo;
+            <em className="not-italic text-brass-100">é cuidadosamente revelado.</em>&rdquo;
           </motion.blockquote>
 
           {/* Body */}
@@ -55,7 +55,7 @@ export function Manifesto() {
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-14 mx-auto w-16 h-px bg-gold/40 origin-center"
+            className="mt-14 mx-auto w-16 h-px bg-brass/40 origin-center"
           />
 
           {/* Author */}

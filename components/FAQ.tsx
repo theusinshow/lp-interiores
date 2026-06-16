@@ -59,7 +59,7 @@ export function FAQ() {
             >
               Respondemos
               <br />
-              <em className="not-italic text-gold">com clareza.</em>
+              <em className="not-italic text-brass">com clareza.</em>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 12 }}
@@ -98,7 +98,7 @@ export function FAQ() {
                     animate={{ rotate: open === i ? 45 : 0 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className={`flex-shrink-0 mt-1 w-5 h-5 flex items-center justify-center text-body transition-colors duration-300 ${
-                      open === i ? 'text-gold' : 'text-taupe group-hover:text-noir'
+                      open === i ? 'text-brass' : 'text-taupe group-hover:text-noir'
                     }`}
                     aria-hidden="true"
                   >

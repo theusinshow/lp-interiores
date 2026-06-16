@@ -89,7 +89,7 @@ export function ContactForm() {
               >
                 Vamos conversar
                 <br />
-                <em className="not-italic text-gold">sobre o seu projeto.</em>
+                <em className="not-italic text-brass">sobre o seu projeto.</em>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
@@ -108,7 +108,7 @@ export function ContactForm() {
                   transition={{ duration: 0.7 }}
                   className="py-12 border border-beige/60 px-8 text-center"
                 >
-                  <span className="block font-serif text-numeral text-gold mb-4">✦</span>
+                  <span className="block font-serif text-numeral text-brass mb-4">✦</span>
                   <h3 className="font-serif text-heading text-noir mb-3">
                     Mensagem recebida.
                   </h3>
@@ -375,7 +375,7 @@ export function ContactForm() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-ghost text-noir hover:text-gold group text-caption"
+                  className="btn-ghost text-noir hover:text-brass group text-caption"
                 >
                   WhatsApp
                   <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>

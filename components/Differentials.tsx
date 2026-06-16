@@ -54,7 +54,7 @@ export function Differentials() {
             >
               O que nos define{' '}
               <br className="hidden md:block" />
-              <em className="not-italic text-gold">é o que entregamos.</em>
+              <em className="not-italic text-brass">é o que entregamos.</em>
             </motion.h2>
           </div>
           <motion.p
@@ -83,7 +83,7 @@ export function Differentials() {
               }}
               className="bg-cream p-8 lg:p-10 group hover:bg-cream-100 transition-colors duration-400"
             >
-              <span className="block font-serif text-numeral text-gold/70 leading-none mb-6 transition-colors duration-400">
+              <span className="block font-serif text-numeral text-brass/70 leading-none mb-6 transition-colors duration-400">
                 {item.number}
               </span>
               <h3 className="font-serif text-heading text-noir mb-4">

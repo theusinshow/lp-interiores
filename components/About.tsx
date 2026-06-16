@@ -62,7 +62,7 @@ export function About() {
               className="font-serif text-display text-noir mb-8 text-balance"
             >
               Rigor estético.<br />
-              <em className="not-italic text-gold">Atenção humana.</em>
+              <em className="not-italic text-brass">Atenção humana.</em>
             </motion.h2>
 
             <motion.div
@@ -104,7 +104,7 @@ export function About() {
                   const el = document.querySelector('#contact')
                   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' })
                 }}
-                className="btn-ghost text-noir hover:text-gold group"
+                className="btn-ghost text-noir hover:text-brass group"
               >
                 Conhecer o processo
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>

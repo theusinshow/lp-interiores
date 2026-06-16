@@ -46,6 +46,7 @@ const services = [
 
 export function Services() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 })
+  const [featured, ...rest] = services
 
   const handleCtaClick = () => {
     const el = document.querySelector('#contact')
@@ -71,7 +72,7 @@ export function Services() {
             >
               O que podemos
               <br />
-              <em className="not-italic text-gold">construir juntos.</em>
+              <em className="not-italic text-brass">construir juntos.</em>
             </motion.h2>
           </div>
           <motion.p
@@ -85,50 +86,72 @@ export function Services() {
           </motion.p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.8,
-                delay: 0.05 + i * 0.08,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="group bg-cream overflow-hidden hover:shadow-card transition-shadow duration-400"
-            >
-              {/* Image */}
-              <div className="relative aspect-video overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover object-center transition-transform duration-700 ease-premium group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading="lazy"
-                />
-                {service.tag && (
-                  <div className="absolute top-4 left-4 bg-gold text-cream text-micro uppercase tracking-[0.12em] px-3 py-1.5">
-                    {service.tag}
-                  </div>
-                )}
+        {/* Featured service — the flagship offering, given its own weight */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+          className="group grid md:grid-cols-2 bg-cream overflow-hidden mb-16 lg:mb-20"
+        >
+          <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[24rem] overflow-hidden">
+            <Image
+              src={featured.image}
+              alt={`${featured.title}, projeto residencial completo da Maison Étoile`}
+              fill
+              className="object-cover object-center transition-transform duration-700 ease-premium group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
+            />
+            {featured.tag && (
+              <div className="absolute top-5 left-5 bg-brass text-cream text-micro uppercase tracking-[0.12em] px-3 py-1.5">
+                {featured.tag}
               </div>
+            )}
+          </div>
+          <div className="flex flex-col justify-center p-8 lg:p-14">
+            <span className="text-micro uppercase tracking-[0.14em] text-brass mb-5">
+              Serviço principal
+            </span>
+            <h3 className="font-serif text-heading text-noir mb-5">{featured.title}</h3>
+            <p className="text-body-lg text-taupe-300 font-sans leading-relaxed mb-8 max-w-md">
+              {featured.body}
+            </p>
+            <button onClick={handleCtaClick} className="btn-primary self-start group/btn">
+              Solicitar proposta
+              <span className="transition-transform duration-300 group-hover/btn:translate-x-1" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </motion.div>
 
-              {/* Content */}
-              <div className="p-7">
-                <h3 className="font-serif text-heading text-noir mb-3">{service.title}</h3>
-                <p className="text-body text-taupe-300 font-sans leading-relaxed mb-6">{service.body}</p>
-                <button
-                  onClick={handleCtaClick}
-                  className="btn-ghost text-noir hover:text-gold text-micro group/btn"
-                >
-                  Saiba mais
-                  <span className="transition-transform duration-300 group-hover/btn:translate-x-1" aria-hidden="true">→</span>
-                </button>
-              </div>
-            </motion.div>
+        {/* Remaining services — an editorial list of offerings, not a card matrix */}
+        <div className="grid md:grid-cols-2 gap-x-14">
+          {rest.map((service, i) => (
+            <motion.button
+              key={service.title}
+              onClick={handleCtaClick}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.15 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              className="group/item text-left border-t border-beige/60 py-7 flex items-start gap-5
+                transition-colors duration-400 hover:border-brass/50"
+            >
+              <span className="flex-1">
+                <span className="flex items-center justify-between gap-4">
+                  <span className="font-serif text-title text-noir transition-colors duration-300 group-hover/item:text-brass-300">
+                    {service.title}
+                  </span>
+                  <span
+                    className="text-brass shrink-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover/item:translate-x-0 group-hover/item:opacity-100"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </span>
+                <span className="block mt-2 text-body text-taupe-300 font-sans leading-relaxed pr-6">
+                  {service.body}
+                </span>
+              </span>
+            </motion.button>
           ))}
         </div>
       </div>

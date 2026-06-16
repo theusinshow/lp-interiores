@@ -71,7 +71,7 @@ export function Process() {
             >
               Método que
               <br />
-              <em className="not-italic text-gold-100">elimina imprevistos.</em>
+              <em className="not-italic text-brass-100">elimina imprevistos.</em>
             </motion.h2>
           </div>
           <motion.p
@@ -101,7 +101,7 @@ export function Process() {
             >
               {/* Number */}
               <div className="flex items-start justify-between mb-6">
-                <span className="font-serif text-numeral text-gold/40 leading-none group-hover:text-gold/70 transition-colors duration-400">
+                <span className="font-serif text-numeral text-brass/40 leading-none group-hover:text-brass/70 transition-colors duration-400">
                   {step.number}
                 </span>
                 <span className="text-micro uppercase tracking-[0.14em] text-beige/70 mt-2">
@@ -112,7 +112,7 @@ export function Process() {
               <h3 className="font-serif text-heading text-cream mb-1">
                 {step.title}
               </h3>
-              <p className="text-micro uppercase tracking-[0.12em] text-gold-100 mb-4">
+              <p className="text-micro uppercase tracking-[0.12em] text-brass-100 mb-4">
                 {step.subtitle}
               </p>
               <p className="text-body text-beige/85 font-sans leading-relaxed">

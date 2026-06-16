@@ -149,7 +149,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 onClick={() => setActiveImg(i)}
                 aria-label={`Ver imagem ${i + 1} do projeto ${project.title}`}
                 aria-pressed={i === activeImg}
-                className="grid place-items-center w-9 h-9 group/dot"
+                className="grid place-items-center w-11 h-11 -m-1 group/dot"
               >
                 <span
                   className={`block w-6 h-0.5 transition-all duration-300 ${
@@ -236,7 +236,7 @@ export function Portfolio() {
               className="font-serif text-display text-noir"
             >
               Projetos que{' '}
-              <em className="not-italic text-gold">ficam na memória.</em>
+              <em className="not-italic text-brass">ficam na memória.</em>
             </motion.h2>
           </div>
 
@@ -245,7 +245,7 @@ export function Portfolio() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
             onClick={handleCtaClick}
-            className="btn-ghost text-noir hover:text-gold group shrink-0 self-end"
+            className="btn-ghost text-noir hover:text-brass group shrink-0 self-end"
           >
             Falar sobre meu projeto
             <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>

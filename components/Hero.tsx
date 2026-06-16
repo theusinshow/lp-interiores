@@ -109,7 +109,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex items-center gap-3 mb-8"
           >
-            <span aria-hidden="true" className="text-[0.7rem] leading-none text-gold-100">✦</span>
+            <span aria-hidden="true" className="text-[0.7rem] leading-none text-brass-100">✦</span>
             <span className="section-label text-beige">São Paulo · Projetos Exclusivos</span>
           </motion.div>
 
@@ -121,7 +121,7 @@ export function Hero() {
           >
             Espaços que
             <br />
-            <em className="not-italic text-gold-100">traduzem quem você é.</em>
+            <em className="not-italic text-brass-100">traduzem quem você é.</em>
           </motion.h1>
 
           <motion.p

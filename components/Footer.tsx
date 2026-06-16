@@ -62,7 +62,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label={`Seguir no ${s.label}`}
                   className="w-11 h-11 border border-taupe-100/30 flex items-center justify-center text-taupe-100/70
-                    hover:border-gold hover:text-gold transition-colors duration-400"
+                    hover:border-brass hover:text-brass transition-colors duration-400"
                 >
                   {s.icon}
                 </a>

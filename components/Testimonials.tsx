@@ -68,7 +68,7 @@ export function Testimonials() {
                 onClick={() => setActive(i)}
                 className={`text-left px-5 py-4 border transition-colors duration-400 ease-premium ${
                   active === i
-                    ? 'border-gold/60 bg-beige/40 text-noir'
+                    ? 'border-brass/60 bg-beige/40 text-noir'
                     : 'border-transparent hover:bg-beige/20 text-taupe-300 hover:text-noir'
                 }`}
               >
@@ -94,7 +94,7 @@ export function Testimonials() {
               >
                 {/* Quote mark */}
                 <span
-                  className="block font-serif text-stat text-gold/30 leading-none mb-4 select-none"
+                  className="block font-serif text-stat text-brass/30 leading-none mb-4 select-none"
                   aria-hidden="true"
                 >
                   &ldquo;
@@ -123,7 +123,7 @@ export function Testimonials() {
               <button
                 onClick={handlePrev}
                 aria-label="Depoimento anterior"
-                className="w-11 h-11 border border-beige flex items-center justify-center text-taupe hover:border-gold hover:text-gold transition-colors duration-300"
+                className="w-11 h-11 border border-beige flex items-center justify-center text-taupe hover:border-brass hover:text-brass transition-colors duration-300"
               >
                 ←
               </button>
@@ -133,7 +133,7 @@ export function Testimonials() {
               <button
                 onClick={handleNext}
                 aria-label="Próximo depoimento"
-                className="w-11 h-11 border border-beige flex items-center justify-center text-taupe hover:border-gold hover:text-gold transition-colors duration-300"
+                className="w-11 h-11 border border-beige flex items-center justify-center text-taupe hover:border-brass hover:text-brass transition-colors duration-300"
               >
                 →
               </button>

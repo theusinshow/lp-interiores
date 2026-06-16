@@ -18,7 +18,7 @@ const config: Config = {
         taupe: '#6B5D4F',
         brown: '#3E312A',
         noir: '#1E1813',
-        gold: '#A87C4F',
+        brass: '#A87C4F',
         // Tonal scale
         'cream-100': '#FAF6EF',
         'cream-200': '#F3EDE3',
@@ -31,9 +31,9 @@ const config: Config = {
         'brown-200': '#3E312A',
         'noir-100': '#2E2620',
         'noir-200': '#1E1813',
-        'gold-100': '#C19A6A',
-        'gold-200': '#A87C4F',
-        'gold-300': '#876038',
+        'brass-100': '#C19A6A',
+        'brass-200': '#A87C4F',
+        'brass-300': '#876038',
         // Semantic
         danger: '#B23A2E',
       },
@@ -104,7 +104,7 @@ const config: Config = {
         'soft': '0 1px 3px 0 rgba(28, 26, 25, 0.06), 0 1px 2px 0 rgba(28, 26, 25, 0.04)',
         'card': '0 4px 24px 0 rgba(28, 26, 25, 0.08)',
         'elevated': '0 8px 40px 0 rgba(28, 26, 25, 0.12)',
-        'gold': '0 0 0 1px rgba(183, 154, 107, 0.3)',
+        'brass': '0 0 0 1px rgba(183, 154, 107, 0.3)',
       },
       transitionTimingFunction: {
         'premium': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',

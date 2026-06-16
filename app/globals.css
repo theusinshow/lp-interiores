@@ -9,7 +9,7 @@
     --color-taupe: #6B5D4F;
     --color-brown: #3E312A;
     --color-noir: #1E1813;
-    --color-gold: #A87C4F;
+    --color-brass: #A87C4F;
   }
 
   html {
@@ -73,8 +73,8 @@
   }
 
   /* Gold separator */
-  .gold-line {
-    @apply block w-12 h-px bg-gold;
+  .brass-line {
+    @apply block w-12 h-px bg-brass;
   }
 
   /* Section label */
@@ -87,14 +87,14 @@
     @apply inline-flex items-center gap-3 px-8 py-4 bg-noir text-cream text-label uppercase tracking-[0.12em]
       transition-colors duration-400 ease-premium
       hover:bg-brown
-      focus-visible:outline-gold;
+      focus-visible:outline-brass;
   }
 
   /* Button secondary */
   .btn-secondary {
     @apply inline-flex items-center gap-3 px-8 py-4 border border-current text-label uppercase tracking-[0.12em]
       transition-colors duration-400 ease-premium
-      focus-visible:outline-gold;
+      focus-visible:outline-brass;
   }
 
   /* Button ghost */
@@ -107,14 +107,14 @@
   .form-input {
     @apply w-full bg-transparent border-b border-taupe/40 py-3 text-body text-noir placeholder:text-taupe/60
       transition-all duration-400 ease-premium
-      focus:outline-none focus:border-gold focus:placeholder:text-taupe/40;
+      focus:outline-none focus:border-brass focus:placeholder:text-taupe/40;
   }
 
   /* Form select */
   .form-select {
     @apply w-full bg-transparent border-b border-taupe/40 py-3 text-body text-noir
       transition-all duration-400 ease-premium appearance-none cursor-pointer
-      focus:outline-none focus:border-gold;
+      focus:outline-none focus:border-brass;
   }
 
   /* Card hover */
